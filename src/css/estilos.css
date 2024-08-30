@@ -149,3 +149,83 @@
   .note.fixed {
     background-color: #3c3c3f;
   }
+
+  /* Responsividade para Tablets */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  #search-container {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  #search-input {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  #add-note-container {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  #notes-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding: 1rem;
+  }
+}
+
+/* Responsividade para Smartphones */
+@media (max-width: 480px) {
+  header {
+    padding: 1rem;
+  }
+
+  #search-container {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  #search-input {
+    width: 90%;
+    font-size: 14px;
+  }
+
+  #export-notes {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  #add-note-container {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 90%;
+  }
+
+  #notes-container {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .note {
+    min-height: 150px;
+  }
+
+  .note textarea {
+    font-size: 14px;
+  }
+
+  .note .bi-pin,
+  .note .bi-x-lg,
+  .note .bi-file-earmark-plus {
+    font-size: 1rem;
+  }
+}
