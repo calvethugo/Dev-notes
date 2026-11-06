@@ -1,39 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notes</title>
-    <!-- Bootstrap Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css"
-    />
-    <!-- CSS -->
+    <meta name="theme-color" content="#101815" />
+    <meta name="description" content="DevNotes — terminal pessoal de anotações." />
+    <title>DEVNOTES // MEMORY TERMINAL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="./src/css/estilos.css" />
-    <!-- JS -->
     <script src="./src/js/index.js" defer></script>
   </head>
   <body>
-    <header>
-      <h1>DevNotes</h1>
-      <div id="search-container">
-        <i class="bi bi-search"></i>
-        <input
-          type="text"
-          id="search-input"
-          placeholder="Busque por uma nota..."
-        />
+    <div class="scanlines" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="DevNotes início">
+        <span class="brand-mark"><i class="bi bi-cpu"></i></span>
+        <span class="brand-name">DEV<span>NOTES</span><small>PERSONAL MEMORY SYSTEM</small></span>
+      </a>
+
+      <div class="system-status">
+        <span class="status-light"></span>
+        <span>SYSTEM ONLINE</span>
+        <span class="status-divider">/</span>
+        <span class="system-version">MN-01</span>
       </div>
-      <button id="export-notes">
-        Exportar CSV <i class="bi bi-download"></i>
-      </button>
+
+      <div class="top-actions">
+        <label id="search-container" for="search-input">
+          <i class="bi bi-search"></i>
+          <input type="search" id="search-input" placeholder="LOCALIZAR REGISTRO..." autocomplete="off" />
+          <kbd>/</kbd>
+        </label>
+        <button id="export-notes" class="utility-button" type="button">
+          <i class="bi bi-download"></i><span>EXPORTAR</span>
+        </button>
+      </div>
     </header>
-    <div id="add-note-container">
-      <input type="text" id="note-content" placeholder="O que deseja anotar?" />
-      <button class="add-note"><i class="bi bi-plus-lg"></i></button>
-    </div>
-    <div id="notes-container"></div>
+
+    <main class="workspace">
+      <section class="intro-panel">
+        <div class="intro-copy">
+          <p class="eyebrow"><span>SYS.LOG</span> / PERSONAL ARCHIVE / 001</p>
+          <h1>Memory <em>terminal</em><span class="title-cursor">_</span></h1>
+          <p class="intro-description">Um espaço local para armazenar ideias, comandos e fragmentos de pensamento.</p>
+        </div>
+        <div class="system-readout" aria-label="Informações do sistema">
+          <div><span class="readout-label">STORAGE</span><strong>LOCAL</strong></div>
+          <div><span class="readout-label">ACCESS</span><strong class="readout-live">GRANTED</strong></div>
+          <div><span class="readout-label">MODE</span><strong>PERSONAL</strong></div>
+        </div>
+      </section>
+
+      <section class="composer-panel" aria-label="Criar nova anotação">
+        <div class="panel-heading">
+          <span><i class="bi bi-plus-square"></i> NEW MEMORY ENTRY</span>
+          <span class="panel-code">INPUT_CHANNEL_01</span>
+        </div>
+        <div id="add-note-container">
+          <i class="bi bi-terminal input-prefix" aria-hidden="true"></i>
+          <input type="text" id="note-content" placeholder="Digite uma ideia ou uma anotação..." maxlength="5000" autocomplete="off" />
+          <button class="add-note" type="button" aria-label="Adicionar anotação"><i class="bi bi-plus-lg"></i><span>REGISTRAR</span></button>
+        </div>
+        <p class="composer-hint"><span>ENTER</span> para registrar um novo fragmento <b>•</b> seus dados ficam neste navegador</p>
+      </section>
+
+      <section class="archive-section">
+        <div class="archive-heading">
+          <div>
+            <p class="eyebrow">DATABASE / INDEX</p>
+            <h2>Stored memories <span id="notes-count">[ 00 ]</span></h2>
+          </div>
+          <div class="archive-legend"><span class="legend-dot"></span> <span>ARCHIVE ACTIVE</span></div>
+        </div>
+        <div id="notes-container" aria-live="polite"></div>
+        <div id="empty-state" class="empty-state" hidden>
+          <i class="bi bi-inbox"></i>
+          <strong>NO RECORDS FOUND</strong>
+          <span>Adicione uma nova anotação para iniciar o arquivo.</span>
+        </div>
+      </section>
+
+      <footer class="system-footer">
+        <span>DEVNOTES <b>///</b> MEMORY MODULE</span>
+        <span>ALL RECORDS STORED LOCALLY <i class="bi bi-shield-check"></i></span>
+        <span>END OF TRANSMISSION_</span>
+      </footer>
+    </main>
   </body>
 </html>
